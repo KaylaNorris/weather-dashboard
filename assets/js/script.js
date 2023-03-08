@@ -46,7 +46,7 @@ function getWeather(cityName) {
                 // var month = futureDates.getMonth();
                 // var year = futureDates.getFullYear();
                 var dateEl = document.createElement("h1");
-                dateEl.innerHTML = "Date: " + data.dt_txt;
+                dateEl.innerHTML = "Date: " + data.dt;
                 outlookEl[i].appendChild(dateEl);
                 
                 var iconEl = document.createElement("img");
@@ -57,8 +57,12 @@ function getWeather(cityName) {
                 tempEl.innerHTML = "Temp: " + data.list[outlookIndex].main.temp + " °F";
                 outlookEl[i].appendChild(tempEl);
 
+                var windEl = document.createElement("p");
+                windEl.innerHTML = "Wind Speed: " + data.list[outlookIndex].wind.speed + " MPH";
+                outlookEl[i].appendChild(windEl);
+
                 var humidityEl = document.createElement("p");
-                humidityEl.innerHTML = "Wind Speed: " + data.list[outlookIndex].wind.speed + " MPH";
+                humidityEl.innerHTML = "Humidity: " + data.list[outlookIndex].main.humidity + " %";
                 outlookEl[i].appendChild(humidityEl);
         }
 })
