@@ -21,3 +21,6 @@ Enter the city name and state in the search field. After submission, the UI will
 ## License
 
 Please refer to the license in the REPO.
+
+## Credits
+Used https://github.com/sylviaprabudy/weather-dashboard as reference.
