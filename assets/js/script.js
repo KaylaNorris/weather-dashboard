@@ -4,6 +4,7 @@ var APIKey = "7558d4bb8bcf776bcebc20d7ff8a389d"
 var desiredCity = document.getElementById("desired-city");
 var cityEl = document.getElementById("city-name");
 var searchEl = document.getElementById("search-button");
+var currentIcon = document.getElementById("current-icon");
 var tempEl = document.getElementById("temp");
 var windEl = document.getElementById("wind");
 var humidityEl = document.getElementById("humidity");
@@ -25,6 +26,7 @@ function getWeather(cityName) {
             var year = todaysDate.getFullYear();
 
             cityEl.innerHTML = data.name + data.dt_txt;
+            currentIcon.innerHTML = data.weather.icon
 
             tempEl.innerHTML = "Temperature: " + data.main.temp + " °F";
             windEl.innerHTML = "Wind Speed: " + data.wind.speed + " MPH";
@@ -46,11 +48,11 @@ function getWeather(cityName) {
                 // var month = futureDates.getMonth();
                 // var year = futureDates.getFullYear();
                 var dateEl = document.createElement("h1");
-                dateEl.innerHTML = "Date: " + data.dt;
+                dateEl.innerHTML = "Date: " + data.list[outlookIndex].dt_txt;
                 outlookEl[i].appendChild(dateEl);
                 
                 var iconEl = document.createElement("img");
-                iconEl.innerHTML = "<img src=" + data.list[outlookIndex].weather[0].icon + ">";
+                iconEl.innerHTML = "<img src=" + data.list[outlookIndex].weather.icon + ">";
                 outlookEl[i].appendChild(iconEl);
 
                 var tempEl = document.createElement("p");
